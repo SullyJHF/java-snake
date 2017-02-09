@@ -54,6 +54,7 @@ public class Screen extends JPanel {
     snake = new Snake();
     level = new Level();
     walls = level.loadLevel("outline");
+    particles = new ArrayList<Particle>();
     food = new Food();
   }
 
