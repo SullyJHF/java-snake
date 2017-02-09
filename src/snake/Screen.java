@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JPanel;
@@ -15,6 +16,7 @@ import entities.Snake;
 import levels.Level;
 import menus.GameOverMenu;
 import menus.Menu;
+import particles.Particle;
 
 public class Screen extends JPanel {
   public static Screen self;
@@ -29,6 +31,7 @@ public class Screen extends JPanel {
   private Food food;
 
   public static List<Entity> walls;
+  public static List<Particle> particles;
 
   public boolean paused = false;
 
@@ -43,6 +46,7 @@ public class Screen extends JPanel {
     snake = new Snake();
     level = new Level();
     walls = level.loadLevel("outline");
+    particles = new ArrayList<Particle>();
     food = new Food();
   }
 
@@ -61,6 +65,9 @@ public class Screen extends JPanel {
     for (Entity wall : walls) {
       wall.draw(g2d);
     }
+    for (Particle p : particles) {
+      p.draw(g2d);
+    }
     if (menu != null) {
       menu.render(g2d);
     }
@@ -76,6 +83,11 @@ public class Screen extends JPanel {
         // gameover code here
         setMenu(new GameOverMenu(snake.score));
         paused = true;
+      }
+      for (int i = particles.size() - 1; i >= 0; i--) {
+        Particle p = particles.get(i);
+        p.update();
+        if (!p.alive) particles.remove(p);
       }
     }
   }

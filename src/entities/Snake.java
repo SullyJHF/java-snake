@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import particles.Particle;
 import snake.Game;
 import snake.Screen;
 
@@ -113,6 +114,7 @@ public class Snake extends Entity {
         body.add(new BodyPiece(prevCellX, prevCellY, food.color));
       else
         body.add(new BodyPiece(body.get(body.size() - 1).prevCellX, body.get(body.size() - 1).prevCellY, food.color));
+      Screen.particles.addAll(generateParticles(food));
       food.update();
     }
   }
@@ -139,6 +141,17 @@ public class Snake extends Entity {
       break;
     }
     prevDir = dir;
+  }
+
+  private ArrayList<Particle> generateParticles(Food food) {
+    int count = r.nextInt(3) + 7;
+    ArrayList<Particle> particles = new ArrayList<Particle>();
+    int x = food.cellX + Screen.CELL_SIZE / 2;
+    int y = food.cellY + Screen.CELL_SIZE / 2;
+    for(int i = 0; i < count; i++) {
+      particles.add(new Particle(x, y));
+    }
+    return particles;
   }
 
   // Custom collide that calls collide on each Entity
