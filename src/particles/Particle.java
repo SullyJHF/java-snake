@@ -7,6 +7,8 @@ import java.util.Random;
 public class Particle {
   private final int ORIG_FADE_TIME = 20;
 
+  private int size;
+
   private double x, y, z;
   private double xVel, yVel, zVel;
 
@@ -24,6 +26,8 @@ public class Particle {
 
     this.x = x;
     this.y = y;
+
+    this.size = r.nextInt(10) + 5;
     this.life = r.nextInt(100) + 50;
     this.fadeTime = ORIG_FADE_TIME;
     this.alpha = 1f;
@@ -47,7 +51,7 @@ public class Particle {
   public void draw(Graphics2D g2d) {
     AlphaComposite acomp = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
     g2d.setComposite(acomp);
-    g2d.fillOval((int) this.x, (int) this.y, 5, 5);
+    g2d.fillOval((int) this.x, (int) this.y, this.size, this.size);
   }
 
   private void fade() {
