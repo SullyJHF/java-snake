@@ -28,14 +28,14 @@ public class Particle {
     this.fadeTime = ORIG_FADE_TIME;
     this.alpha = 1f;
 
-    this.xVel = (r.nextDouble() * 5 - 2.5) * 100.0 / life;
-    this.yVel = (r.nextDouble() * 5 - 2.5) * 100.0 / life;
+    this.xVel = (r.nextDouble() * 5 - 2.5) * 150.0 / life;
+    this.yVel = (r.nextDouble() * 5 - 2.5) * 150.0 / life;
 
     this.alive = true;
   }
 
   public void update() {
-    if (this.life > 0) {
+    if (this.life > ORIG_FADE_TIME) {
       --this.life;
     } else {
       fade();

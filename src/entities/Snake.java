@@ -144,7 +144,7 @@ public class Snake extends Entity {
   }
 
   private ArrayList<Particle> generateParticles(Food food) {
-    int count = r.nextInt(3) + 7;
+    int count = r.nextInt(10) + 7;
     ArrayList<Particle> particles = new ArrayList<Particle>();
     int x = food.cellX + Screen.CELL_SIZE / 2;
     int y = food.cellY + Screen.CELL_SIZE / 2;
