@@ -1,6 +1,7 @@
 package particles;
 
 import java.awt.AlphaComposite;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Random;
 
@@ -17,6 +18,8 @@ public class Particle {
   private int fadeTime;
   private float alpha;
 
+  private Color color;
+
   public boolean alive;
 
   private Random r;
@@ -31,6 +34,8 @@ public class Particle {
     this.life = r.nextInt(100) + 50;
     this.fadeTime = ORIG_FADE_TIME;
     this.alpha = 1f;
+
+    this.color = Color.DARK_GRAY;
 
     this.xVel = (r.nextDouble() * 5 - 2.5) * 150.0 / life;
     this.yVel = (r.nextDouble() * 5 - 2.5) * 150.0 / life;
@@ -51,6 +56,7 @@ public class Particle {
   public void draw(Graphics2D g2d) {
     AlphaComposite acomp = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
     g2d.setComposite(acomp);
+    g2d.setColor(this.color);
     g2d.fillOval((int) this.x, (int) this.y, this.size, this.size);
   }
 

@@ -83,6 +83,7 @@ public class Snake extends Entity {
     if (cellTime <= 0) {
       move();
       cellTime = (int) (Game.UPS / speed);
+//      Screen.particles.addAll(generateParticles(cellX + SIZE / 2, cellY + SIZE / 2));
     }
 
     if (cellX != prevCellX || cellY != prevCellY) {
@@ -114,7 +115,7 @@ public class Snake extends Entity {
         body.add(new BodyPiece(prevCellX, prevCellY, food.color));
       else
         body.add(new BodyPiece(body.get(body.size() - 1).prevCellX, body.get(body.size() - 1).prevCellY, food.color));
-      Screen.particles.addAll(generateParticles(food));
+      Screen.particles.addAll(generateParticles(food.cellX + Screen.CELL_SIZE / 2, food.cellY + Screen.CELL_SIZE / 2));
       food.update();
     }
   }
@@ -143,11 +144,9 @@ public class Snake extends Entity {
     prevDir = dir;
   }
 
-  private ArrayList<Particle> generateParticles(Food food) {
+  private ArrayList<Particle> generateParticles(int x, int y) {
     int count = r.nextInt(10) + 7;
     ArrayList<Particle> particles = new ArrayList<Particle>();
-    int x = food.cellX + Screen.CELL_SIZE / 2;
-    int y = food.cellY + Screen.CELL_SIZE / 2;
     for(int i = 0; i < count; i++) {
       particles.add(new Particle(x, y));
     }

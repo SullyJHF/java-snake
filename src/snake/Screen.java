@@ -1,5 +1,6 @@
 package snake;
 
+import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -69,8 +70,9 @@ public class Screen extends JPanel {
     for (Particle p : particles) {
       p.draw(g2d);
     }
+    g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1F));
     if (menu != null) {
-      menu.render(g2d);
+      menu.draw(g2d);
     }
   }
 

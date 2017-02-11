@@ -30,7 +30,7 @@ public class GameOverMenu extends Menu {
   }
 
   @Override
-  public void render(Graphics2D g2d) {
+  public void draw(Graphics2D g2d) {
     FontMetrics titleMetrics = g2d.getFontMetrics(titleFont);
     int titleWidth = titleMetrics.stringWidth(title);
     int titleX = Screen.WIDTH / 2 - titleWidth / 2;
