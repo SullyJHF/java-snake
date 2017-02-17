@@ -3,9 +3,9 @@ package levels;
 import java.util.ArrayList;
 import java.util.List;
 
+import display.Screen;
 import entities.Entity;
 import entities.Wall;
-import snake.Screen;
 
 public class Outline extends Level {
   private List<Entity> walls;

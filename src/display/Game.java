@@ -1,6 +1,8 @@
-package snake;
+package display;
 
 import javax.swing.JFrame;
+
+import input.InputHandler;
 
 public class Game extends JFrame implements Runnable {
   private Thread thread;

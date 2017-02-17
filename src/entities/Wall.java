@@ -3,7 +3,7 @@ package entities;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import snake.Screen;
+import display.Screen;
 
 public class Wall extends Entity {
   private final int SIZE = Screen.CELL_SIZE;

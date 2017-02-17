@@ -6,9 +6,9 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import display.Game;
+import display.Screen;
 import particles.Particle;
-import snake.Game;
-import snake.Screen;
 
 public class Snake extends Entity {
   public static final int SIZE = Screen.CELL_SIZE;

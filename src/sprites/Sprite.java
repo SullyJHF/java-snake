@@ -2,7 +2,7 @@ package sprites;
 
 import java.awt.image.BufferedImage;
 
-import snake.ImageUtils;
+import utils.ImageUtils;
 
 public class Sprite {
   public String filepath;

@@ -1,10 +1,12 @@
-package snake;
+package input;
 
 
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
+import display.Game;
 
 public class InputHandler implements KeyListener, FocusListener {
   public boolean[] keys = new boolean[65536];

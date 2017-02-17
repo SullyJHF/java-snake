@@ -1,4 +1,4 @@
-package snake;
+package display;
 
 import java.awt.EventQueue;
 

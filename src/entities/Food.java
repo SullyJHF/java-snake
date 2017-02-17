@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.util.Random;
 
-import snake.Screen;
+import display.Screen;
 import sprites.Apple;
 
 public class Food extends Entity {

@@ -7,7 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 
-import snake.Screen;
+import display.Screen;
 
 public class GameOverMenu extends Menu {
   private String[] options = { "RESTART", "BACK TO TITLE", "QUIT GAME" };
